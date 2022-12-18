@@ -1,7 +1,6 @@
 FROM ubuntu:latest
 
 MAINTAINER xiangzaixiansheng@163.com  golang_basic
-ENV TZ=Asia/Shanghai
 
 # use --build-arg GO_VERSION=<version>
 # ARG GO_VERSION
@@ -9,8 +8,11 @@ ENV TZ=Asia/Shanghai
 
 ENV GO_VERSION=1.18.9
 
-RUN apt-get update
-RUN apt-get install -y wget git gcc
+COPY ./etc/apt/sources.list /etc/apt/sources.list
+
+RUN apt-get update \
+    && apt-get install -y wget git gcc
+
 RUN wget -P /tmp "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
 
 RUN tar -C /usr/local -xzf "/tmp/go${GO_VERSION}.linux-amd64.tar.gz"
