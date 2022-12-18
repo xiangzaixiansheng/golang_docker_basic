@@ -27,5 +27,8 @@ export GOPROXY=https://mirrors.aliyun.com/goproxy/
 
 
 
-source-list
+#### source-list加速配置
+
+
+
 https://developer.aliyun.com/mirror/ubuntu?spm=a2c6h.13651102.0.0.3e221b11VgT6LD
