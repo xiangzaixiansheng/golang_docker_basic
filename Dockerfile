@@ -13,7 +13,7 @@ COPY ./etc/apt/sources.list /etc/apt/sources.list
 RUN apt-get update \
     && apt-get install -y wget git gcc
 
-RUN wget -P /tmp "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz" --user-agent="Mozilla/5.0 (X11;U;Linux i686;en-US;rv:1.9.0.3) Geco/2008092416 Firefox/3.0.3" --no-check-certificate
+RUN wget -P /tmp "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
 
 RUN tar -C /usr/local -xzf "/tmp/go${GO_VERSION}.linux-amd64.tar.gz"
 RUN rm "/tmp/go${GO_VERSION}.linux-amd64.tar.gz"
