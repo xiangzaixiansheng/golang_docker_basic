@@ -11,7 +11,8 @@ ENV GO_VERSION=1.18.9
 COPY ./etc/apt/sources.list /etc/apt/sources.list
 
 RUN apt-get update \
-    && apt-get install -y wget git gcc
+    && apt-get install -y wget git gcc tzdata curl \
+    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 RUN wget -P /tmp "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
 
